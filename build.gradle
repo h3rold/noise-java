@@ -5,6 +5,18 @@ plugins {
 group 'com.southernstorm.noise'
 version '1.0-SNAPSHOT'
 
+jar {
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+
+    manifest {
+        attributes 'Main-Class': 'com.southernstorm.noise.protocol.Noise',
+                'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+    // How-to add class path:
+    //     https://stackoverflow.com/questions/22659463/add-classpath-in-manifest-using-gradle
+    //     https://gist.github.com/simon04/6865179
+}
+
 task wrapperr(type: Wrapper){
     gradleVersion = '5.2.1'
 }
