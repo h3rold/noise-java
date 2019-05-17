@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+group 'com.southernstorm.noise'
+version '1.0-SNAPSHOT'
+
+task wrapperr(type: Wrapper){
+    gradleVersion = '5.2.1'
+}
